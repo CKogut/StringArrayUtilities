@@ -57,11 +57,15 @@ public class StringArrayUtils {
      * @return an array with identical contents in reverse order
      */ // TODO
     public static String[] reverse(String[] array) {
-        String[] reverse;
-        for(int i = array.length; i>=0; i--){
+        //create new array
+        String[] reverse = new String[array.length];
 
+        //loop through original array
+        for(int i = 0; i < array.length; i++){
+            //get the inverse position of array[i]
+            reverse[array.length-1-i] = array[i];
         }
-        return null;
+        return reverse;
     }
 
     /**
