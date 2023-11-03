@@ -91,15 +91,14 @@ public class StringArrayUtils {
 
     int count = 0;
 
-        //97 - 122 is the ascii values of a-z lowercase
-        for (int i=97; i<122; i++){
-            //swap everything to lowercase
+        for (int i=0; i<array.length; i++){
+            //swap to lowercase
             String word = array[i].toLowerCase();
 
-            //inner loop grabs each word
-            for (int j=0; j<word.length(); j++){
-                char letter = word.charAt(i);
-                if (letter == j){
+            //97 - 122 is the ascii values of a-z lowercase
+            for (int j=97; j<=122; j++){
+
+                if (word.contains()) {
                     //increment counter and break
                     count++;
                     break;
@@ -107,7 +106,7 @@ public class StringArrayUtils {
             }
         }
 
-        return count == 26;
+        return false;
     }
 
     /**
