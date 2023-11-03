@@ -97,16 +97,18 @@ public class StringArrayUtils {
 
             //97 - 122 is the ascii values of a-z lowercase
             for (int j=97; j<=122; j++){
+                char letter = (char) j;
+                String str = "" + letter;
 
-                if (word.contains()) {
+                if (word.contains(str)) {
                     //increment counter and break
                     count++;
-                    break;
+                    //break;
                 }
             }
         }
-
-        return false;
+        //System.out.println(count);
+        return count == 26;
     }
 
     /**
