@@ -90,24 +90,22 @@ public class StringArrayUtils {
     public static boolean isPangramic(String[] array) {
 
     int count = 0;
+    String combined = "";
 
-        for (int i=0; i<array.length; i++){
+        for (int i=0; i<array.length; i++) {
             //swap to lowercase
             String word = array[i].toLowerCase();
+            combined = combined + word;
+        }
 
-            //97 - 122 is the ascii values of a-z lowercase
-            for (int j=97; j<=122; j++){
-                char letter = (char) j;
-                String str = "" + letter;
-
-                if (word.contains(str)) {
-                    //increment counter and break
-                    count++;
-                    //break;
-                }
+        for (int i = 97; i<=122; i++){
+            char letter = (char) i;
+            String str = "" + letter;
+            if(combined.contains(str)){
+                count++;
             }
         }
-        //System.out.println(count);
+
         return count == 26;
     }
 
