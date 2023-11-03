@@ -115,7 +115,17 @@ public class StringArrayUtils {
      * @return number of occurrences the specified `value` has occurred
      */ // TODO
     public static int getNumberOfOccurrences(String[] array, String value) {
-        return 0;
+        int count = 0;
+
+        for (int i=0; i<array.length; i++){
+            String word = array[i];
+            if (word.equals(value)){
+                count++;
+            }
+        }
+
+        return count;
+
     }
 
     /**
@@ -124,7 +134,17 @@ public class StringArrayUtils {
      * @return array with identical contents excluding values of `value`
      */ // TODO
     public static String[] removeValue(String[] array, String valueToRemove) {
-        return null;
+       String[] removed = new String[array.length-1];
+       int nextIndex = 0;
+
+       for (int i=0; i< array.length; i++){
+           if (!array[i].equals(valueToRemove)){
+               removed[nextIndex] = array[i];
+               nextIndex++;
+           }
+       }
+
+       return removed;
     }
 
     /**
@@ -132,6 +152,17 @@ public class StringArrayUtils {
      * @return array of Strings with consecutive duplicates removes
      */ // TODO
     public static String[] removeConsecutiveDuplicates(String[] array) {
+        int count = 0;
+
+        //get number of duplicates
+        for (int i=0; i< array.length-1; i++){
+            if (array[i] == array[i+1]);{
+
+                count++;
+            }
+        }
+
+        System.out.println(count);
         return null;
     }
 
