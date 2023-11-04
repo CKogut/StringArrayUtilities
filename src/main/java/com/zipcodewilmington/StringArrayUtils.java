@@ -94,20 +94,25 @@ public class StringArrayUtils {
     int count = 0;
     String combined = "";
 
+        //combine array into one string
         for (int i=0; i<array.length; i++) {
             //swap to lowercase
             String word = array[i].toLowerCase();
             combined = combined + word;
         }
 
+        //loop through the ascii values of lowercase a-z
         for (int i = 97; i<=122; i++){
             char letter = (char) i;
+            //change the char to string to use the contains methods
             String str = "" + letter;
             if(combined.contains(str)){
+                //increment counter if the letter is present
                 count++;
             }
         }
 
+        //if count is 26 all letters present
         return count == 26;
     }
 
@@ -154,24 +159,30 @@ public class StringArrayUtils {
      * @return array of Strings with consecutive duplicates removes
      */ // TODO
     public static String[] removeConsecutiveDuplicates(String[] array) {
-        List<String> removed = new ArrayList<>();
+        //create a list to take advantage of dynamic size
+        List<String> noDups = new ArrayList<>();
 
+        //loop through input array
         for (int i=0; i< array.length-1; i++){
+            //determine the two words to compare, i.e. current and next word
             String first = array[i];
             String second = array[i+1];
-            if (first.equals(second)){
-                removed.add(second);
-                i++;
-            } else {
-                removed.add(first);
+
+            //always add the first word
+            if (i==0){
+                noDups.add(first);
+            }
+
+            //if they don't match, add next word. Otherwise, no action needed.
+            if (!first.equals(second)){
+                noDups.add(second);
             }
         }
 
-        System.out.println(removed);
+        //convert list back to array for return purposes
+        String[] result = noDups.toArray(new String[0]);
 
-
-
-        return null;
+        return result;
     }
 
     /**
@@ -179,6 +190,38 @@ public class StringArrayUtils {
      * @return array of Strings with each consecutive duplicate occurrence concatenated as a single string in an array of Strings
      */ // TODO
     public static String[] packConsecutiveDuplicates(String[] array) {
+        //create a list to take advantage of dynamic size
+        List<StringBuilder> dups = new ArrayList<>();
+        //create new StringBuilder to gather duplicates
+        StringBuilder currentChars = new StringBuilder();
+
+
+        //loop through array
+        for (int i=0; i < array.length-1; i++){
+            //determine the two words to compare, i.e. current and next word
+            String first = array[i];
+            String second = array[i+1];
+
+            //always add the first character
+            if (i==0){
+                currentChars.append(first);
+            }
+
+            //if first letter matches second letter, add NEXT letter to currentChars
+            if (first.equals(second)){
+                currentChars.append(second);
+            } else {
+                dups.add(currentChars);
+                currentChars.setLength(0);
+                currentChars.append(second);
+            }
+        }
+
+        System.out.println(currentChars);
+        System.out.println(dups.get(0));
+
+        String[] result = dups.toArray(new String[0]);
+
         return null;
     }
 
