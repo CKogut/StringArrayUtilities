@@ -191,7 +191,7 @@ public class StringArrayUtils {
      */ // TODO
     public static String[] packConsecutiveDuplicates(String[] array) {
         //create a list to take advantage of dynamic size
-        List<StringBuilder> dups = new ArrayList<>();
+        List<String> dups = new ArrayList<>();
         //create new StringBuilder to gather duplicates
         StringBuilder currentChars = new StringBuilder();
 
@@ -211,18 +211,18 @@ public class StringArrayUtils {
             if (first.equals(second)){
                 currentChars.append(second);
             } else {
-                dups.add(currentChars);
+                dups.add(currentChars.toString());
                 currentChars.setLength(0);
                 currentChars.append(second);
             }
         }
 
-        System.out.println(currentChars);
-        System.out.println(dups.get(0));
+        //System.out.println(currentChars);
+        System.out.println(dups);
 
         String[] result = dups.toArray(new String[0]);
 
-        return null;
+        return result;
     }
 
 
