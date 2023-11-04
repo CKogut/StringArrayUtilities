@@ -217,8 +217,8 @@ public class StringArrayUtils {
             }
         }
 
-        //System.out.println(currentChars);
-        System.out.println(dups);
+        //always add the last value of currentChars
+        dups.add(currentChars.toString());
 
         String[] result = dups.toArray(new String[0]);
 
